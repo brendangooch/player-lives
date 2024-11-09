@@ -1,0 +1,45 @@
+{
+    "name": "@brendangooch/player-lives",
+    "version": "1.0.0",
+    "description": "",
+    "author": "B Gooch <brendangooch@gmail.com>",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" NODE_NO_WARNINGS=1 jest",
+        "build": "tsc -p tsconfig.prod.json",
+        "pretest": "clear && npm run remove-tests && tsc --outdir tests",
+        "posttest": "npm run remove-tests",
+        "prebuild": "npm run remove-lib",
+        "prepack": "npm run build",
+        "remove-tests": "rm -rf tests",
+        "remove-lib": "rm -rf lib"
+    },
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "exports": {
+        ".": "./lib/index.js"
+    },
+    "types": "./lib/index.d.ts",
+    "files": [
+        "/lib"
+    ],
+    "devDependencies": {
+        "@brendangooch/jest-expect": "^1.1.0",
+        "@types/jest": "^29.5.14",
+        "jest": "^29.7.0",
+        "typescript": "^5.6.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/brendangooch/player-lives.git"
+    },
+    "homepage": "https://github.com/brendangooch/player-lives#readme",
+    "bugs": {
+        "url": "https://github.com/brendangooch/player-lives/issues",
+        "email": "brendangooch@gmail.com"
+    },
+    "keywords": []
+}

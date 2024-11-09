@@ -1,0 +1,18 @@
+{
+    "verbose": false,
+    "transform": {},
+    "testMatch": [
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "coverageProvider": "v8",
+    "moduleFileExtensions": [
+        "js"
+    ],
+    "slowTestThreshold": 3,
+    "testPathIgnorePatterns": [
+        "<rootDir>/node_modules/"
+    ],
+    "roots": [
+        "<rootDir>/tests/"
+    ]
+}
