@@ -1,0 +1,2 @@
+v1.0.1
+    forgot to export PlayerLives class from index.ts; done so now
