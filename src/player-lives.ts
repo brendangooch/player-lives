@@ -32,6 +32,15 @@ export class PlayerLives {
         return (this.lives.length === 0 || this.numEliminated === this.lives.length) ? 0 : Math.max(...this.lives.map(obj => obj.lives));
     }
 
+    public get isGameOver(): boolean {
+        return this.numRemaining === 1;
+    }
+
+    public get winner(): number | null {
+        if (this.isGameOver) return this.remaining[0];
+        return null;
+    }
+
     public start(numPlayers: number, numLives: number): void {
         this.lives.length = 0;
         for (let id = 1; id <= numPlayers; id++) {

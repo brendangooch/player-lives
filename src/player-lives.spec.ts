@@ -35,6 +35,8 @@ function testAll(): void {
         testKnowsWhenAPlayerHasBeenEliminated();
         testRemovesLifeFromCorrectPlayer();
         testRemovesMultipleLivesFromCorrectPlayer();
+        testCorrectlyIdentifiesWhenTheGameIsOver();
+        testCorrectlyIdentifiesTheWinner();
 
     });
 }
@@ -528,3 +530,52 @@ function testRemovesMultipleLivesFromCorrectPlayer(): void {
     });
 }
 
+function testCorrectlyIdentifiesWhenTheGameIsOver(): void {
+    test('correctly identifies when the game is over', () => {
+
+        lives.start(6, 3);
+
+        EXPECT.falsy(lives.isGameOver);
+
+        lives.loseLives(6, 3);
+        EXPECT.falsy(lives.isGameOver);
+
+        lives.loseLives(5, 3);
+        EXPECT.falsy(lives.isGameOver);
+
+        lives.loseLives(4, 3);
+        EXPECT.falsy(lives.isGameOver);
+
+        lives.loseLives(3, 3);
+        EXPECT.falsy(lives.isGameOver);
+
+        lives.loseLives(2, 3);
+        EXPECT.truthy(lives.isGameOver); // <--
+
+    });
+}
+
+function testCorrectlyIdentifiesTheWinner(): void {
+    test('correctly identifies the winner', () => {
+
+        lives.start(6, 3);
+
+        EXPECT.toBeNull(lives.winner);
+
+        lives.loseLives(6, 3);
+        EXPECT.toBeNull(lives.winner);
+
+        lives.loseLives(5, 3);
+        EXPECT.toBeNull(lives.winner);
+
+        lives.loseLives(4, 3);
+        EXPECT.toBeNull(lives.winner);
+
+        lives.loseLives(3, 3);
+        EXPECT.toBeNull(lives.winner);
+
+        lives.loseLives(2, 3);
+        EXPECT.toBe(lives.winner!, 1); // <--
+
+    });
+}

@@ -1,2 +1,12 @@
 v1.0.1
     forgot to export PlayerLives class from index.ts; done so now
+
+v1.1.0
+    added 2 new methods:
+        get winner()        when only 1 player is remaining, that player is the winner
+        get isGameOver()    when only 1 player remains, the game is over
+
+(future)
+v1.2.0
+    add player ranking system to module
+    so that game can advise player where they finished in the game
